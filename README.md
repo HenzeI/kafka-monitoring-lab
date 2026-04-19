@@ -8,13 +8,13 @@ Varios servidores (simulados por un productor) reportan métricas de rendimiento
 ## Arquitectura
 
 ```
-┌─────────────────────┐        ┌───────────────────┐        ┌──────────────────────┐
-│     PRODUCTOR       │        │       KAFKA        │        │     CONSUMIDOR       │
-│                     │        │                    │        │                      │
-│  web01, web02,      │──────▶│ system-metrics-    │──────▶│  Inserta en MongoDB  │
-│  db01, app01,       │ JSON  │ topic              │ JSON  │  · system_metrics_raw│
-│  cache01            │        │                    │        │  · system_metrics_kpis│
-└─────────────────────┘        └───────────────────┘        └──────────────────────┘
+┌─────────────────────┐        ┌───────────────────┐        ┌─────────────────────────┐
+│     PRODUCTOR       │        │       KAFKA       │        │       CONSUMIDOR        │
+│                     │        │                   │        │                         │
+│  web01, web02,      │──────▶│ system-metrics-    │──────▶│  Inserta en MongoDB     │
+│  db01, app01,       │ JSON   │ topic             │ JSON   │  · system_metrics_raw   │
+│  cache01            │        │                   │        │  · system_metrics_kpis  │
+└─────────────────────┘        └───────────────────┘        └─────────────────────────┘
 ```
 
 ---
